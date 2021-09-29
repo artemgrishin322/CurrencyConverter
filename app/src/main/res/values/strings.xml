@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">Currency Converter</string>
-    <string name="conn_warninig">Please connect to the internet to proceed</string>
-    <string name="pos_button_name">Connect</string>
-    <string name="neg_button_name">Cancel</string>
-    <string name="change_currency">Change Currency</string>
+    <string name="app_name">Конвертер валют</string>
+    <string name="conn_warninig">Подключитесь к Интернету, чтобы продолжить</string>
+    <string name="pos_button_name">Подключить</string>
+    <string name="neg_button_name">Отмена</string>
+    <string name="change_currency">Изменить валюту</string>
+    <string name="currency_val">Сумма</string>
+    <string name="currency_code">КОД</string>
 </resources>

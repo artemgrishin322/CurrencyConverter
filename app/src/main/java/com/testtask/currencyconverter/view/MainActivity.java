@@ -13,6 +13,7 @@ import android.provider.Settings;
 import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.testtask.currencyconverter.R;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.Theme_CurrencyConverter);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
