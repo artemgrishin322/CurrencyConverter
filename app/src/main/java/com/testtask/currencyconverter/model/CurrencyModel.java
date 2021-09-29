@@ -6,6 +6,7 @@ import android.util.Log;
 import com.testtask.currencyconverter.common.Currency;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -60,14 +61,14 @@ public class CurrencyModel {
             if (doc != null) {
                 NodeList valutes = doc.getFirstChild().getChildNodes();
                 for (int i = 0; i < valutes.getLength(); i++) {
-                    NodeList valuteParams = valutes.item(i).getChildNodes();
-                    String[] currencyParameters = new String[5];
-                    for (int j = 0; j < valuteParams.getLength(); j++) {
-                        currencyParameters[j] = valuteParams.item(j).getFirstChild().getNodeValue();
-                    }
-                    currencyParameters[4] = currencyParameters[4].replace(',', '.');
-                    currencies.add(new Currency(Integer.parseInt(currencyParameters[0]), currencyParameters[1],
-                            Integer.parseInt(currencyParameters[2]), currencyParameters[3], Double.parseDouble(currencyParameters[4])));
+                    Node nValute = valutes.item(i);
+                    Element eValute = (Element) nValute;
+                    int numCode = Integer.parseInt(eValute.getElementsByTagName("NumCode").item(0).getTextContent());
+                    String charCode = eValute.getElementsByTagName("CharCode").item(0).getTextContent();
+                    int nominal = Integer.parseInt(eValute.getElementsByTagName("Nominal").item(0).getTextContent());
+                    String name = eValute.getElementsByTagName("Name").item(0).getTextContent();
+                    double rubValue = Double.parseDouble(eValute.getElementsByTagName("Value").item(0).getTextContent().replace(',', '.'));
+                    currencies.add(new Currency(numCode, charCode, nominal, name, rubValue));
                 }
             }
 
